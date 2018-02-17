@@ -47,6 +47,7 @@ public class Task2 extends Thread {
     }
     
     public void end() {
+        doNotify("Task2 done.");
         exit = true;
     }
     

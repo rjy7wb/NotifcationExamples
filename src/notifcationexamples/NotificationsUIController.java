@@ -59,13 +59,16 @@ public class NotificationsUIController implements Initializable, Notifiable {
     
     @Override
     public void notify(String message) {
-        if (message.equals("Task1 done.")) {
+        if (message.equals("Task1 done.") || message.equals("Task1 Stopped.")) {
+            tskButton1.setText("Task1");
             task1 = null;
         }
-        if (message.equals("Task2 done.")) {
+        if (message.equals("Task2 done.") || message.equals("Task2 Stopped.")) {
+            tskButton3.setText("Task2");
             task1 = null;
         }
-        if (message.equals("Task3 done.")) {
+        if (message.equals("Task3 done.") || message.equals("Task3 Stopped.")) {
+            tskButton3.setText("Task3");
             task1 = null;
         }
         textArea.appendText(message + "\n");
@@ -83,7 +86,6 @@ public class NotificationsUIController implements Initializable, Notifiable {
         else {
             task1.end();
             task1 = null;
-            tskButton1.setText("Task1");
         }
     }
     
@@ -95,7 +97,6 @@ public class NotificationsUIController implements Initializable, Notifiable {
             task2.setOnNotification((String message) -> {
                 if(message.equals("Task2 done.") || message.equals("Task2 Stopped.")){
                     task2 = null;
-                    tskButton2.setText("Task2");
                 }
                 textArea.appendText(message + "\n");
             });
@@ -106,7 +107,6 @@ public class NotificationsUIController implements Initializable, Notifiable {
         else {
             task2.end();
             task2 = null;
-            tskButton2.setText("Task2");
         }
     }
     
@@ -130,7 +130,6 @@ public class NotificationsUIController implements Initializable, Notifiable {
         else {
             task3.end();
             task3 = null;
-            tskButton3.setText("Task3");
         }
         
     } 
